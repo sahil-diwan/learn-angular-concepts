@@ -1,6 +1,6 @@
 # DisplayDataHandlingEvents
 
-##1.Property Binding
+## 1.Property Binding
 ```
 HTML
 <div>
