@@ -1,11 +1,14 @@
 # DisplayDataHandlingEvents
 
-#1.Property Binding
-'<div>
+##1.Property Binding
+```
+<div>
     <h2>1.Property Binding</h2>
     <button [disabled]="buttonDisabled">Save</button>
   </div>
-      buttonDisabled=false;'
+```
+      buttonDisabled=false;
+```
 
 
 
