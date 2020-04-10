@@ -1,0 +1,52 @@
+<body>
+  <div>
+    <h2>1.Property Binding</h2>
+    <button [disabled]="buttonDisabled">Save</button>
+  </div>
+  <div>
+    <h2>2.Attribute Binding</h2>
+    <table>
+      <tr>
+        <td [attr.colspan]="colspan">This is Column 1</td>
+      </tr>
+    </table>
+  </div>
+  <div>
+    <h2>3.Class Binding</h2>
+    <button class="btn btn-primary" [class.isActive]="isActive">Save</button>
+  </div>
+  <div>
+    <h2>4.Style Binding</h2>
+    <button [style.background]="isStyleActive?'blue':'white'" >Save</button>
+  </div>
+
+  <div>
+    <h2>5.Event Binding</h2>
+    <p>My name is {{name}}</p>
+    <button (click)="updateName()">Update Button</button>
+  </div>
+
+  <div>
+    <h2>6.Event Binding With Event Bubbling</h2>
+    <div (click)="divClicked()">
+    <button (click)="onSave($event)">Save</button>
+    </div>
+  </div>
+
+  <div>
+    <h2>7.Event Binding Without Event Bubbling</h2>
+    <div (click)="divClicked1()">
+    <button (click)="onSave1($event)">Save</button>
+    </div>
+  </div>
+
+  <div>
+    <h2>8.Event Filtering</h2>
+    <input (keyup.enter)="onKeyUp()"/>
+  </div>
+
+  <div>
+    <h2>9.Template Variables</h2>
+    <input #email (keyup.enter)="onKeyUp1(email.value)"/>
+  </div>
+</body>
