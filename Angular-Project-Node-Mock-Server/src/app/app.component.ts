@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { PostsService } from './posts.service';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,9 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'Angular-Project-Node-Mock-Server';
+  posts:any;
+  constructor(private postService:PostsService){
+    postService.getPosts().subscribe(res=>this.posts=res);
+  }
+
 }
