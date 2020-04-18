@@ -10,7 +10,7 @@ export class AppComponent {
   title = 'Angular-Project-Node-Mock-Server';
   posts:any;
   constructor(private postService:PostsService){
-    postService.getPosts().subscribe(res=>this.posts=res);
+    this.postService.getPosts().subscribe(res=>this.posts=res);
   }
 
 }
