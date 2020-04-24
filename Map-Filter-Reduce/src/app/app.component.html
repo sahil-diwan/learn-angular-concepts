@@ -1,0 +1,66 @@
+<h3> Before Using the Map Operator</h3>
+
+<div class="container">
+  <div class="row" *ngFor="let officer of officers">
+    <div class="col">{{officer.id}}</div>
+    <div class="col">{{officer.name}}</div>
+  </div>
+</div>
+
+<h3>After Applying the map operator to fetch id</h3>
+<div class="container">
+  <div class="row" *ngFor="let data of mapData">
+    <div class="col">{{data}}</div>
+  </div>
+</div>
+
+
+
+<h3> Before Using the Reduce Operator</h3>
+
+<div class="container">
+  <div class="row" *ngFor="let pilot of pilots">
+    <div class="col">{{pilot.id}}</div>
+    <div class="col">{{pilot.name}}</div>
+    <div class="col">{{pilot.years}}</div>
+  </div>
+</div>
+
+<h3>After Applying the reduce operator to calculate total experience of all the pilots</h3>
+
+<h4>{{reduceData}}</h4>
+
+
+<h3> Before Using the Filter Operator</h3>
+
+<div class="container">
+  <div class="row" *ngFor="let soldier of soldiers">
+    <div class="col">{{soldier.id}}</div>
+    <div class="col">{{soldier.name}}</div>
+    <div class="col">{{soldier.faction}}</div>
+  </div>
+</div>
+
+<h3>After Applying filter operator Rebels</h3>
+
+<div class="container">
+  <div class="row" *ngFor="let rebel of rebels">
+    <div class="col">{{rebel.id}}</div>
+    <div class="col">{{rebel.name}}</div>
+    <div class="col">{{rebel.faction}}</div>
+  </div>
+</div>
+
+<h3>After Applying filter operator Rebels</h3>
+
+<div class="container">
+  <div class="row" *ngFor="let emp of empire">
+    <div class="col">{{emp.id}}</div>
+    <div class="col">{{emp.name}}</div>
+    <div class="col">{{emp.faction}}</div>
+  </div>
+</div>
+
+
+<h3>Combining Map Reduce and Filter</h3>
+
