@@ -112,3 +112,4 @@ export class PostDetailsComponent implements OnInit {
 }
 
 ```
+## https://alligator.io/angular/route-resolvers/
