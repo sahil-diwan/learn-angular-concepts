@@ -1,27 +1,51 @@
 # LazyLoading
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.0.7.
+## One advantage of splitting the application into modules is the ability to load certain modules only when needed. When using Lazy Loading modules, loading is only done when the use navigates to the route of the respective module.
 
-## Development server
+```
+  ng generate module big-module --routing
+  ng g c big-module/big-feature
+```
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+## app-routing.module.ts
 
-## Code scaffolding
+```
+  import { NgModule } from '@angular/core';
+import { Routes, RouterModule } from '@angular/router';
+import { HomeComponent } from './home/home.component';
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
 
-## Build
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+const routes: Routes = [
+  { path: '', pathMatch: 'full', redirectTo: 'home'},
+  { path: 'home', component: HomeComponent},
+  { path: 'bigComponent',loadChildren: () => import('./big-module/big-module.module').then(m => m.BigModuleModule)} 
+];
 
-## Running unit tests
+@NgModule({
+  imports: [RouterModule.forRoot(routes)],
+  exports: [RouterModule]
+})
+export class AppRoutingModule { }
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+```
 
-## Running end-to-end tests
+## big-module-routing.module.ts
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+```
+import { NgModule } from '@angular/core';
+import { Routes, RouterModule } from '@angular/router';
+import { BigFeatureComponent } from './big-feature/big-feature.component';
 
-## Further help
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+const routes: Routes = [
+  { path: '', component: BigFeatureComponent}
+];
+
+@NgModule({
+  imports: [RouterModule.forChild(routes)],
+  exports: [RouterModule]
+})
+export class BigModuleRoutingModule { }
+
+```
